@@ -1,13 +1,4 @@
 # Session 08 - Library Management System
-
-Project: `LibraryManagement` (console). Create a new console project and copy the `.cs` files into it
-(delete the template's `Program.cs` first). `Program.cs` demonstrates all 8 concepts (Part 9).
-
-Files: `LibraryItem.cs`, `Book.cs`, `Book.Display.cs`, `Book.Operators.cs`, `Magazine.cs`,
-`LibraryUtilities.cs`, `LibraryCard.cs`, `LibraryConfiguration.cs`, `Program.cs`.
-
----
-
 ## Part 1 - Abstract class
 
 **Why is `LibraryItem` abstract?**
@@ -116,6 +107,3 @@ and `Lazy<T>` runs that factory once and caches the result. `Instance` always re
 **Multiple threads at the same time?** `LazyThreadSafetyMode.ExecutionAndPublication` makes `Lazy<T>` use a lock internally:
 the first thread runs the factory, other threads wait, and all of them receive the same object. `Program.cs` proves it with
 `Parallel.For` (50 parallel requests -> 1 distinct instance).
-
-Note: the properties (`LibraryName`, ...) are settable, so creating the object is thread-safe, but changing values from
-several threads at once would need its own synchronization.
